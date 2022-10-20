@@ -28,6 +28,7 @@
   "homepage": "https://github.com/die-h/todo-list-project#readme",
   "devDependencies": {
     "@types/node": "18.11.0",
-    "@types/react": "18.0.21"
+    "@types/react": "18.0.21",
+    "sass": "^1.55.0"
   }
 }

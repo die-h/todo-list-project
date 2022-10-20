@@ -7,6 +7,7 @@ const TodoSearch = ({
   searchValue: string;
   setSearchValue: React.Dispatch<React.SetStateAction<string>>;
 }) => {
+  
   const handleSearchValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
   };

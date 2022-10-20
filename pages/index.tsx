@@ -35,13 +35,21 @@ const Home = () => {
   } else {
     searchedTodos = defaultTodos;
   }
+
+  const completeTodos = (text: string) => {
+    const todoIndex = todos.findIndex((todo) => todo.text === text);
+    const newTodos: todo[] = [...todos];
+    newTodos[todoIndex].completed = true;
+    setTodos(newTodos);
+  };
+
   return (
     <React.Fragment>
       <TodoCounter completedTodos={completedTodos} totalTodos={totalTodos} />
       <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
       <TodoList>
         {searchedTodos.map((todo, index) => (
-          <TodoItem key={index} text={todo.text} />
+          <TodoItem key={todo.text} text={todo.text} completed={todo.completed} onComplete={() => completeTodos(todo.text)} />
         ))}
       </TodoList>
       <CreateTodoButton />

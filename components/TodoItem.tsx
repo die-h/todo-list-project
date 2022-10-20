@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 
-const TodoItem = (props: { text: string }) => {
-  const [complete, setComplete] = useState(false);
-  const [deleteTodo, setDeleteTodo] = useState(false);
+const TodoItem = (props: { text: string, completed: boolean, onComplete: VoidFunction}) => {
+const deleteTodo = () => {
 
+}
   return (
     <li>
-      <span>C</span>
+      <span onClick={() => props.onComplete}>C</span>
       <p>{props.text}</p>
-      <span onClick={() => setDeleteTodo(true)}>X</span>
+      <span onClick={() => deleteTodo()}>X</span>
     </li>
   );
 };
