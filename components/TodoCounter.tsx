@@ -1,7 +1,17 @@
 import React from "react";
 
-const TodoCounter = () => {
-  return <div>TodoCounter</div>;
+const TodoCounter = ({
+  completedTodos,
+  totalTodos,
+}: {
+  completedTodos: number;
+  totalTodos: number;
+}) => {
+  return (
+    <h2>
+      Has completado {completedTodos} de {totalTodos} Todo's
+    </h2>
+  );
 };
 
-export {TodoCounter};
+export { TodoCounter };
