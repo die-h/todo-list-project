@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 const TodoSearch = ({
   searchValue,
@@ -7,7 +7,6 @@ const TodoSearch = ({
   searchValue: string;
   setSearchValue: React.Dispatch<React.SetStateAction<string>>;
 }) => {
-  
   const handleSearchValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
   };
