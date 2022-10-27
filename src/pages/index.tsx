@@ -13,29 +13,45 @@ const Home = () => {
     text: string;
     completed: boolean;
   }
-  const defaultTodos: todo[] = [
-    { text: "Cortar cebolla", completed: true },
-    { text: "Tormar el curso de intro a react", completed: false },
-    { text: "Llorar con la llorona", completed: false },
-    { text: "Llorar con cebolla", completed: false },
-  ];
+  const lsTodoVar = "dhtodos_V1"
+  const localStorageTodos = localStorage.getItem(lsTodoVar);
+  let parsedTodos;
+
+  if (!localStorageTodos) {
+    localStorage.setItem(lsTodoVar, "[]");
+    parsedTodos = [];
+  } else {
+    parsedTodos = JSON.parse(localStorageTodos);
+  }
+
+  // const defaultTodos: todo[] = [
+  //   { text: "Cortar cebolla", completed: true },
+  //   { text: "Tormar el curso de intro a react", completed: false },
+  //   { text: "Llorar con la llorona", completed: false },
+  //   { text: "Llorar con cebolla", completed: false },
+  // ];
 
   const [searchValue, setSearchValue] = useState<string>("");
-  const [todos, setTodos] = useState<todo[]>(defaultTodos);
+  const [todos, setTodos] = useState<todo[]>(parsedTodos);
   const completedTodos = todos.filter((todo) => !!todo.completed).length;
   const totalTodos: number = todos.length;
+
+  const saveTodos = (newTodos : todo[]) => {
+    localStorage.setItem(lsTodoVar, JSON.stringify(newTodos))
+    setTodos(newTodos)
+  }
 
   const completeTodo = (text: string) => {
     const newTodos: todo[] = [...todos];
     const todoIndex = newTodos.findIndex((todo) => todo.text === text);
     newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
-    setTodos(newTodos);
+    saveTodos(newTodos);
   };
   const deleteTodo = (text: string) => {
-    const todoIndex = todos.findIndex((todo) => todo.text === text);
     const newTodos: todo[] = [...todos];
+    const todoIndex = todos.findIndex((todo) => todo.text === text);
     newTodos.splice(todoIndex, 1);
-    setTodos(newTodos);
+    saveTodos(newTodos);
   };
 
   let searchedTodos: todo[] = [];
