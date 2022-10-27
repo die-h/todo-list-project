@@ -13,9 +13,10 @@ const TodoSearch = ({
   return (
     <input
       type="text"
-      placeholder="cebolla"
+      placeholder="Search something..."
       value={searchValue}
       onChange={handleSearchValue}
+      className="p-2 border  border-sky-500 rounded-md focus:border-sky-700 focus:outline-sky-700  mb-4 mt-3"
     />
   );
 };
