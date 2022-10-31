@@ -28,7 +28,7 @@
   "homepage": "https://github.com/die-h/todo-list-project#readme",
   "devDependencies": {
     "@types/node": "18.11.0",
-    "@types/react": "18.0.21",
+    "@types/react": "^18.0.24",
     "autoprefixer": "^10.4.12",
     "postcss": "^8.4.18",
     "sass": "^1.55.0",

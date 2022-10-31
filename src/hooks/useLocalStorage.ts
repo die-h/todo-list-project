@@ -1,10 +1,11 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 
 function useLocalStorage(
   localItem: string,
   initialValue: unknown
 ): [unknown, (newItem: unknown) => void] {
   let parsedItem: unknown = initialValue;
+  const [item, setItem] = useState<unknown>(parsedItem);
 
   useEffect(() => {
     const localStorageItem = localStorage.getItem(localItem);
@@ -18,8 +19,6 @@ function useLocalStorage(
     console.log("effect");
   }, []);
 
-  const [item, setItem] = useState<unknown>(parsedItem);
-
   const saveItem = (newItem: unknown): void => {
     localStorage.setItem(localItem, JSON.stringify(newItem));
     setItem(newItem);
@@ -28,4 +27,4 @@ function useLocalStorage(
   return [item, saveItem];
 }
 
-export {useLocalStorage}
+export { useLocalStorage };
