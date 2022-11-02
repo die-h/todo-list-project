@@ -8,7 +8,7 @@ import {
 } from "components/Home";
 import { TodoContext } from "context/TodoContext";
 
-const AppUI = () => {
+const HomeUI = () => {
   const {
     totalTodos,
     completedTodos,
@@ -48,4 +48,4 @@ const AppUI = () => {
   );
 };
 
-export { AppUI };
+export { HomeUI };

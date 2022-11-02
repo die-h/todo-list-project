@@ -1,4 +1,4 @@
-export * from './AppUI/AppUI';
+export * from './HomeUI/HomeUI';
 export * from './CreateTodoButton/CreateTodoButton';
 export * from './TodoCounter/TodoCounter';
 export * from './TodoItem/TodoItem';
