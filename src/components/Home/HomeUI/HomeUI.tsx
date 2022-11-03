@@ -7,6 +7,7 @@ import {
   TodoSearch,
 } from "components/Home";
 import { TodoContext } from "context/TodoContext";
+import { Modal } from "components/shared";
 
 const HomeUI = () => {
   const {
@@ -42,6 +43,9 @@ const HomeUI = () => {
             />
           ))}
         </TodoList>
+        <Modal>
+          <p>asd</p>
+        </Modal>
         <CreateTodoButton />
       </section>
     </main>
