@@ -1,13 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 
-  const Modal = ({ children }: { children: React.ReactNode }) => {
-    const test = window || false;
-    if (window) {
-      const modal = document.getElementById("modal") as HTMLElement;
-      return ReactDOM.createPortal(children, modal);
-    }
-    return <></>
-  };
+const Modal = ({ children }: { children: React.ReactNode }) => {
+const [onClient, setOnClient] = useState(false)
+  useEffect(() => {
+    setOnClient(true);
+  }, [])
+  
+  return onClient ? ReactDOM.createPortal(children, document.getElementById("modal") as HTMLElement) : null
+
+};
 
 export { Modal };
