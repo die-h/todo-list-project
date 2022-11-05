@@ -43,7 +43,6 @@ function TodoProvider(props: React.PropsWithChildren) {
   let searchedTodos: todo[] = [];
 
   if (searchValue.length >= 1) {
-    console.log(searchValue);
 
     searchedTodos = todos.filter((todo) => {
       const todoText = todo.text.toLowerCase();

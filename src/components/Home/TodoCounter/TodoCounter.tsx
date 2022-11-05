@@ -10,7 +10,6 @@ const TodoCounter = ({
   total: number;
 }) => {
   const context= useContext(TodoContext)
-  console.log(context)
   return (
     <h2 className="h-8 font-medium text-center text-xl leading-8 text-gray-900">
      You have completed {completed} of {total} Todo's! 

@@ -16,7 +16,6 @@ function useLocalStorage(
       parsedItem = JSON.parse(localStorageItem);
       setItem(parsedItem);
     }
-    console.log("effect");
   }, []);
 
   const saveItem = (newItem: unknown): void => {

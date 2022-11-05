@@ -6,7 +6,6 @@ import { TodoContext } from "context/TodoContext";
 
 const CreateTodoButton = () => {
   const { openForm, setOpenForm } = useContext(TodoContext);
-  console.log(openForm);
   return (
     <button className={style.container} onClick={() => setOpenForm(true)}>
       <Image
