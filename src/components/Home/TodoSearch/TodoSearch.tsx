@@ -1,12 +1,8 @@
-import React from "react";
+import { TodoContext } from "context/TodoContext";
+import React, { useContext } from "react";
 
-const TodoSearch = ({
-  searchValue,
-  setSearchValue,
-}: {
-  searchValue: string;
-  setSearchValue: React.Dispatch<React.SetStateAction<string>>;
-}) => {
+const TodoSearch = () => {
+  const { searchValue, setSearchValue } = useContext(TodoContext);
   const handleSearchValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
   };

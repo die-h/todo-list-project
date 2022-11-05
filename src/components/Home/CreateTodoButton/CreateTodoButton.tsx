@@ -5,7 +5,7 @@ import add from "assets/icons/add.svg";
 import { TodoContext } from "context/TodoContext";
 
 const CreateTodoButton = () => {
-  const { openForm, setOpenForm } = useContext(TodoContext);
+  const { setOpenForm } = useContext(TodoContext);
   return (
     <button className={style.container} onClick={() => setOpenForm(true)}>
       <Image

@@ -1,8 +1,17 @@
 // import App from 'next/app'
 import type { AppProps } from "next/app";
+import Head from "next/head";
 import "../styles/globals.css";
 function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  return (
+    <>
+      <Head>
+        <title>TODO list project</title>
+        <link rel="shortcut icon" href="public/favicon.ico" type="image/x-icon" />
+      </Head>
+      <Component {...pageProps} />
+    </>
+  );
 }
 
 // Only uncomment this method if you have blocking data requirements for

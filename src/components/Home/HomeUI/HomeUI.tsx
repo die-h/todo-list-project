@@ -33,8 +33,8 @@ const HomeUI = () => {
         className="flex flex-col gap-2 h-fit bg-gray-200 rounded-xl p-5 relative"
         style={{ height: "600px", width: "400px" }}
       >
-        <TodoCounter completed={completedTodos} total={totalTodos} />
-        <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
+        <TodoCounter />
+        <TodoSearch />
         <TodoList>
           {searchedTodos.map((todo) => (
             <TodoItem
