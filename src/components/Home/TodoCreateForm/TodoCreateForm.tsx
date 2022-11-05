@@ -24,11 +24,11 @@ const TodoCreateForm = () => {
         onSubmit={onSubmit}
         className={`${style.form} bg-gray-200 rounded-xl `}
       >
-        <h2>Add a new TO DO to the list!</h2>
+        <h2>Add a new Todo to the list!</h2>
         <label htmlFor="todo">
           <textarea
             name="todo"
-            placeholder="Add your new TO DO here"
+            placeholder="Add your new Todo here"
             value={todoText}
             onChange={newTodoText}
           />

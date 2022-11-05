@@ -5,24 +5,14 @@ import {
   TodoList,
   CreateTodoButton,
   TodoSearch,
-  TodoCreateForm
+  TodoCreateForm,
 } from "components/Home";
 import { TodoContext } from "context/TodoContext";
 import { Modal } from "components/shared";
 
 const HomeUI = () => {
-  const {
-    totalTodos,
-    completedTodos,
-    searchValue,
-    setSearchValue,
-    searchedTodos,
-    completeTodo,
-    deleteTodo,
-    openForm,
-    setOpenForm
-  } = useContext(TodoContext);
-  const context = useContext(TodoContext);
+  const { searchedTodos, completeTodo, deleteTodo, openForm } =
+    useContext(TodoContext);
   return (
     <main
       className={
@@ -46,9 +36,7 @@ const HomeUI = () => {
             />
           ))}
         </TodoList>
-        <Modal>
-        {openForm ? <TodoCreateForm/> : null}
-        </Modal>
+        <Modal>{openForm ? <TodoCreateForm /> : null}</Modal>
         <CreateTodoButton />
       </section>
     </main>
