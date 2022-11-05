@@ -16,20 +16,20 @@ const TodoItem = ({
   onComplete: VoidFunction;
   deleteTodo: VoidFunction;
 }) => {
+
   return (
     <li
       className="flex justify-between items-center h-8"
     >
-      <div className="flex items-center h-8 gap-2">
+      <div className={`flex items-center h-8 gap-2 ${completed ? "line-through" : ""}`}>
         <Image
           src={completed ? check : uncheck}
-          width="30px"
-          height="30px"
           onClick={onComplete}
+          alt={"Toggle complete TO DO"}
         />
         <p>{text}</p>
       </div>
-      <Image src={dismiss} width={"20px"} height="20px" onClick={deleteTodo} />
+      <Image src={dismiss} width={"20"} height="20" onClick={deleteTodo} alt={"Dismiss To Do"}/>
     </li>
   );
 };

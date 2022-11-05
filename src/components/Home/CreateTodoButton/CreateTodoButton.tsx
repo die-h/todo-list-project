@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
+import Image from "next/image";
+import style from "./CreateTodoButton.module.scss";
+import add from "assets/icons/add.svg";
+import { TodoContext } from "context/TodoContext";
 
 const CreateTodoButton = () => {
-  return <button className="create-todo-button" >+</button>;
+  const { openForm, setOpenForm } = useContext(TodoContext);
+  console.log(openForm);
+  return (
+    <button className={style.container} onClick={() => setOpenForm(true)}>
+      <Image
+        src={add}
+        className={style.button}
+        alt="open / close form to add a TO DO to the list"
+      ></Image>
+    </button>
+  );
 };
 
 export { CreateTodoButton };

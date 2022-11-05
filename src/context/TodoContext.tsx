@@ -11,12 +11,22 @@ function TodoProvider(props: React.PropsWithChildren) {
     todo[],
     (newItem: todo[]) => void
   ];
+  const [openForm, setOpenForm] = useState<boolean>(false);
   const [searchValue, setSearchValue] = useState<string>("");
   const completedTodos: number = todos.filter(
     (todo) => !!todo.completed
   ).length;
   const totalTodos: number = todos.length;
 
+  const addTodo = (text: string) => {
+    const newTodos: todo[] = [...todos];
+    const newTodo: todo = {
+      text: text,
+      completed: false,
+    };
+    newTodos.push(newTodo);
+    saveTodos(newTodos);
+  };
   const completeTodo = (text: string) => {
     const newTodos: todo[] = [...todos];
     const todoIndex = newTodos.findIndex((todo) => todo.text === text);
@@ -46,17 +56,18 @@ function TodoProvider(props: React.PropsWithChildren) {
 
   return (
     <TodoContext.Provider
-      value={
-        {
-          totalTodos,
-          completedTodos,
-          searchValue,
-          setSearchValue,
-          searchedTodos,
-          completeTodo,
-          deleteTodo,
-        }
-      }
+      value={{
+        totalTodos,
+        completedTodos,
+        searchValue,
+        setSearchValue,
+        searchedTodos,
+        completeTodo,
+        deleteTodo,
+        addTodo,
+        openForm,
+        setOpenForm
+      }}
     >
       {props.children}
     </TodoContext.Provider>

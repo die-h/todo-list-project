@@ -5,6 +5,7 @@ import {
   TodoList,
   CreateTodoButton,
   TodoSearch,
+  TodoCreateForm
 } from "components/Home";
 import { TodoContext } from "context/TodoContext";
 import { Modal } from "components/shared";
@@ -18,6 +19,8 @@ const HomeUI = () => {
     searchedTodos,
     completeTodo,
     deleteTodo,
+    openForm,
+    setOpenForm
   } = useContext(TodoContext);
   const context = useContext(TodoContext);
   return (
@@ -27,7 +30,7 @@ const HomeUI = () => {
       }
     >
       <section
-        className="flex flex-col gap-2 h-fit bg-gray-200 rounded-xl p-5"
+        className="flex flex-col gap-2 h-fit bg-gray-200 rounded-xl p-5 relative"
         style={{ height: "600px", width: "400px" }}
       >
         <TodoCounter completed={completedTodos} total={totalTodos} />
@@ -44,7 +47,7 @@ const HomeUI = () => {
           ))}
         </TodoList>
         <Modal>
-          <p>asd</p>
+        {openForm ? <TodoCreateForm/> : null}
         </Modal>
         <CreateTodoButton />
       </section>

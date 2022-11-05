@@ -13,4 +13,7 @@ export interface todoContext {
   searchedTodos: todo[];
   completeTodo: (text: string) => void;
   deleteTodo: (text: string) => void;
+  addTodo: (text: string) => void;
+  openForm: boolean;
+  setOpenForm: React.Dispatch<React.SetStateAction<boolean>>;
 }
