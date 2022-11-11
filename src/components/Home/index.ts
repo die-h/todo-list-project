@@ -5,3 +5,4 @@ export * from './TodoCreateForm/TodoCreateForm';
 export * from './TodoItem/TodoItem';
 export * from './TodoList/TodoList';
 export * from './TodoSearch/TodoSearch';
+export * from '../shared/withStorageListener/withStorageListener';

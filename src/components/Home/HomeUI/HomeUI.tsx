@@ -8,7 +8,7 @@ import {
   TodoCreateForm,
 } from "components/Home";
 import { TodoContext } from "context/TodoContext";
-import { Modal } from "components/shared";
+import { Modal , ChangeAlertWithStorageListener} from "components/shared";
 
 const HomeUI = () => {
   const { searchedTodos, completeTodo, deleteTodo, openForm } =
@@ -38,6 +38,8 @@ const HomeUI = () => {
         </TodoList>
         <Modal>{openForm ? <TodoCreateForm /> : null}</Modal>
         <CreateTodoButton />
+        {/* <ChangeAlertWithStorageListener/> */}
+        <ChangeAlertWithStorageListener/>
       </section>
     </main>
   );
