@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 
-function useLocalStorage(
+function useLocalStorage<T>(
   localItem: string,
-  initialValue: unknown
-): [unknown, (newItem: unknown) => void] {
-  let parsedItem: unknown = initialValue;
-  const [item, setItem] = useState<unknown>(parsedItem);
+  initialValue: T
+): [T, (newItem: T) => void] {
+  let parsedItem: T = initialValue;
+  const [item, setItem] = useState<T>(parsedItem);
 
   useEffect(() => {
     const localStorageItem = localStorage.getItem(localItem);
@@ -18,7 +18,7 @@ function useLocalStorage(
     }
   }, []);
 
-  const saveItem = (newItem: unknown): void => {
+  const saveItem = (newItem: T): void => {
     localStorage.setItem(localItem, JSON.stringify(newItem));
     setItem(newItem);
   };

@@ -7,10 +7,7 @@ const TodoContext = createContext<todoContext>({} as todoContext);
 function TodoProvider(props: React.PropsWithChildren) {
   const lsTodoVar = "dh_todos_V1";
 
-  const [todos, saveTodos] = useLocalStorage(lsTodoVar, []) as [
-    todo[],
-    (newItem: todo[]) => void
-  ];
+  const [todos, saveTodos] = useLocalStorage<todo[]>(lsTodoVar, []);
   const [openForm, setOpenForm] = useState<boolean>(false);
   const [searchValue, setSearchValue] = useState<string>("");
   const completedTodos: number = todos.filter(
@@ -43,7 +40,6 @@ function TodoProvider(props: React.PropsWithChildren) {
   let searchedTodos: todo[] = [];
 
   if (searchValue.length >= 1) {
-
     searchedTodos = todos.filter((todo) => {
       const todoText = todo.text.toLowerCase();
       const searchedText = searchValue.toLowerCase();
@@ -65,7 +61,7 @@ function TodoProvider(props: React.PropsWithChildren) {
         deleteTodo,
         addTodo,
         openForm,
-        setOpenForm
+        setOpenForm,
       }}
     >
       {props.children}
